@@ -1,5 +1,5 @@
 {
-  "name": "nttdata-backend",
+  "name": "find-my-movie-api",
   "version": "0.0.1",
   "description": "An API to consume OMDB API",
   "author": "Matheus-gs <mgomes494@gmail.com>",
