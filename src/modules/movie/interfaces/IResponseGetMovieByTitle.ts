@@ -1,17 +1,5 @@
 export interface IResponseGetMovieByTitle {
   Title: string;
-  Actors: string;
-  Plot: string;
-  Poster: string;
-  Ratings?: Ratings[] | null;
-}
-export interface Ratings {
-  Source: string;
-  Value: string;
-}
-
-export interface ICompleteResponseGetMovieByTitle {
-  Title: string;
   Year: string;
   Rated: string;
   Released: string;
@@ -36,4 +24,8 @@ export interface ICompleteResponseGetMovieByTitle {
   Production: string;
   Website: string;
   Response: string;
+}
+export interface Ratings {
+  Source: string;
+  Value: string;
 }
