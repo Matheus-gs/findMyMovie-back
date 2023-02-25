@@ -1,13 +1,15 @@
-import { IResponseGetMovieByTitle } from './interfaces/IResponseGetMovieByTitle';
-import { Controller, Get, Query } from '@nestjs/common';
+import { ResponseGetMovieByTitleDTO } from './types/ResponseGetMovieByTitleDTO';
+import { Controller, Get, Param } from '@nestjs/common';
 import { MovieService } from './movie.service';
 
 @Controller('movies')
 export class MovieController {
   constructor(private readonly movieService: MovieService) {}
 
-  @Get('getMovieByTitle')
-  async getMovieByTitle(@Query('title') title: string): Promise<IResponseGetMovieByTitle> {
+  @Get('getMovieByTitle/:title')
+  async getMovieByTitle(
+    @Param('title') title: string,
+  ): Promise<ResponseGetMovieByTitleDTO> {
     return await this.movieService.getMovieByTitle(title);
   }
 }
