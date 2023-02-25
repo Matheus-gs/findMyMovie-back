@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { OMDB_API_BASE_URL } from 'src/constants';
+import { OMDB_API_BASE_URL } from '../../constants/index';
 import { ResponseGetMovieByTitleDTO } from './types/ResponseGetMovieByTitleDTO';
 import { IResponseGetMovieByTitle } from './interfaces/IResponseGetMovieByTitle';
 
