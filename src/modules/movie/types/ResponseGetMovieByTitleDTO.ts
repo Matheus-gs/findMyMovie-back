@@ -1,6 +1,9 @@
 import { IResponseGetMovieByTitle } from '../interfaces/IResponseGetMovieByTitle';
 
-export type ResponseGetMovieByTitleDTO = Pick<
+export type GetMovieByTitleDTO = Pick<
   IResponseGetMovieByTitle,
-  'Title' | 'Actors' | 'Plot' | 'Poster' | 'Ratings' | 'imdbRating'
+  'imdbID' | 'Title' | 'Actors' | 'Plot' | 'Poster' | 'Ratings' | 'imdbRating'
 >;
+export interface ResponseGetMovieByTitleDTO extends GetMovieByTitleDTO {
+  Id: string;
+}

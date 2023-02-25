@@ -8,21 +8,31 @@ import { IResponseGetMovieByTitle } from './interfaces/IResponseGetMovieByTitle'
 export class MovieService {
   constructor(private readonly httpService: HttpService) {}
 
-  async getMovieByTitle(title: string): Promise<ResponseGetMovieByTitleDTO> {
+  async getMovieByTitle(
+    title: string,
+  ): Promise<ResponseGetMovieByTitleDTO> {
     if (!title) return;
     const url = `${OMDB_API_BASE_URL}&t=${title}`;
 
-    const { data } = await this.httpService.axiosRef.get<IResponseGetMovieByTitle>(url);
+    try {
+      const { data } = await this.httpService.axiosRef.get<IResponseGetMovieByTitle>(url);
 
-    const { Title, Actors, Plot, Poster, Ratings, imdbRating } = data;
+      const { Title, Actors, Plot, Poster, Ratings, imdbRating, imdbID } = data;
+      if (!imdbID) throw new Error();
 
-    return {
-      Title,
-      Actors,
-      Plot,
-      Poster,
-      Ratings,
-      imdbRating,
-    };
+      const Id = imdbID;
+
+      return {
+        Id,
+        Title,
+        Actors,
+        Plot,
+        Poster,
+        Ratings,
+        imdbRating,
+      };
+    } catch (error) {
+      return error;
+    }
   }
 }
