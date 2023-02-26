@@ -32,6 +32,12 @@
 $ npm install
 ```
 
+## Config 
+Please, to run this project locally, make sure you have an OMDB API key available, you can generate one for free on [OMDB API](https://www.omdbapi.com/), when you receive you API key just replace in `.env` file and run `npm start` or `npm run start:dev` 
+
+## Routes avaiable
+Our project has swagger documentation, to access this one, just visit [http://localhost:3000/docs](http://localhost:3000/docs)
+
 ## Running the app
 
 ```bash
