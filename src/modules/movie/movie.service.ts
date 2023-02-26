@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { OMDB_API_BASE_URL } from '../../constants/index';
 import { ResponseGetMovieByTitleDTO } from './types/ResponseGetMovieByTitleDTO';
 import { IResponseGetMovieByTitle } from './interfaces/IResponseGetMovieByTitle';
 
@@ -12,7 +11,7 @@ export class MovieService {
     title: string,
   ): Promise<ResponseGetMovieByTitleDTO> {
     if (!title) return;
-    const url = `${OMDB_API_BASE_URL}&t=${title}`;
+    const url = `${process.env.OMDB_API_BASE_URL}&t=${title}`;
 
     try {
       const { data } = await this.httpService.axiosRef.get<IResponseGetMovieByTitle>(url);
